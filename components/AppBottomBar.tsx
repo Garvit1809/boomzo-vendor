@@ -24,7 +24,8 @@ const BarItem: React.FC<BarItemProps> = ({
   return (
     <div
       onClick={() => router.push(href)}
-      className={`relative flex flex-col hover:bg-pink-600/20 pb-2 items-center p-1 px-3 gap-y-1 rounded-2xl`}
+      className={`relative flex flex-col pb-2 items-center p-1 px-3 gap-y-1 rounded-2xl`}
+      // className={`relative flex flex-col hover:bg-pink-600/20 pb-2 items-center p-1 px-3 gap-y-1 rounded-2xl`}
     >
       {/* {badgeCount && badgeCount > 0 && (
         <span className="absolute top-1 right-4 bg-pink-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">

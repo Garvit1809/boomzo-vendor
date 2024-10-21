@@ -10,23 +10,6 @@ import { getHeaders } from "@/lib/helperFunctions";
 import { useRouter } from "next/navigation";
 import { CouponType } from "@/types/Coupon.type";
 
-// interface CouponData {
-//   brandName: string;
-//   imgUrl: string;
-//   couponCount: string;
-//   offerText: string;
-//   validity: string;
-//   bgColor: string;
-// }
-
-// const couponData: CouponData = {
-//   brandName: "The Raymond Shop",
-//   imgUrl: "/logo.jpg",
-//   couponCount: "001",
-//   offerText: "10% Off",
-//   validity: "Valid till 31st Dec",
-//   bgColor: "#FEE2E2",
-// };
 
 interface CouponStatProps {
   icon: React.ReactNode;
