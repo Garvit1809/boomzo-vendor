@@ -10,7 +10,6 @@ import { getHeaders } from "@/lib/helperFunctions";
 import { useRouter } from "next/navigation";
 import { CouponType } from "@/types/Coupon.type";
 
-
 interface CouponStatProps {
   icon: React.ReactNode;
   label: string;
@@ -18,11 +17,18 @@ interface CouponStatProps {
 }
 
 const Home: React.FC = () => {
+  const navigate = useRouter();
+
   const [loading, setLoading] = useState<boolean>(true);
 
   const [vendor, setVendor] = useState<Vendor | undefined>(undefined);
 
-  const navigate = useRouter();
+  useEffect(() => {
+    const vendor_data = localStorage.getItem(VENDOR_LOCAL_DATA);
+    if (!vendor_data) {
+      navigate.push("/login");
+    }
+  }, []);
 
   const checkVendor = () => {
     const storedVendor = localStorage.getItem(VENDOR_LOCAL_DATA); // 'user' can be any key you store vendor data with
@@ -112,14 +118,14 @@ const CouponStat: React.FC<CouponStatProps> = ({ icon, label, statValue }) => (
       {icon}
     </span>
     <div>
-      <h1 className="text-pink-800 text-sm font-semibold">{label}</h1>
+      <h1 className="text-pink-800 text-xs font-semibold">{label}</h1>
       <h1 className="text-pink-800 font-bold">{statValue}</h1>
     </div>
   </div>
 );
 
 const CouponCard: React.FC<{ data: CouponType }> = ({ data }) => (
-  <div className="flex flex-col border-2 border-pink-600 border-dashed rounded-2xl py-5 px-2">
+  <div className="flex flex-col border-2 border-pink-600 border-dashed rounded-2xl pt-2 pb-5 px-2">
     <Coupon
       coupon={data}
       // bgColor={data.bgColor}
@@ -128,7 +134,7 @@ const CouponCard: React.FC<{ data: CouponType }> = ({ data }) => (
     <div className="info grid grid-cols-2 my-2  place-items-start px-2 gap-y-2 gap-x-1">
       <CouponStat
         icon={<CircleFadingArrowUp size={24} />}
-        label="Total Clicks Rate"
+        label="Total Clicks"
         statValue={data.clicks}
         value=""
       />

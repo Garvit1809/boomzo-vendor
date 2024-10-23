@@ -6,6 +6,10 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'res.cloudinary.com',
             },
+            {
+                protocol: 'https',
+                hostname: 'www.shutterstock.com', // Add this entry to allow Shutterstock images
+            },
         ],
     },
 };

@@ -67,7 +67,7 @@ export default function IssueRequestPage() {
   return (
     <div className=" mt-5 md:mt-20 flex flex-col items-center">
       <h1 className="text-center text-2xl text-pink-600 font-bold ">
-        Issued Request
+        Issued Requests
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-center items-center w-[95vw] pt-6 mx-auto pb-40">
         {loading ? (
@@ -95,7 +95,11 @@ export default function IssueRequestPage() {
             );
           })
         ) : (
-          <span>No issue requests found on your scan.</span>
+          <div className="w-[90%] mx-auto flex justify-center">
+            <span className="text-center">
+              No issue requests found on your scan.
+            </span>
+          </div>
         )}
       </div>
     </div>

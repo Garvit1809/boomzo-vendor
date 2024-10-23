@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import AppBottomBar from "@/components/AppBottomBar";
 import NavigationBar from "@/components/Navbar";
+import { Toaster } from "@/components/ui/toaster";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -10,7 +11,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Coupon Vendor App",
+  title: "Boomzo Partners",
   description: "",
 };
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         <div className="block sm:hidden">
           <AppBottomBar />
         </div>
+        <Toaster />
       </body>
     </html>
   );
